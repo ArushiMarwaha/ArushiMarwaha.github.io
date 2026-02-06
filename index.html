@@ -1,7 +1,64 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <h1>My First GitHub Website</h1>
-  <p>I'm officially on the web!</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; color: white; }
+        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold gradient-text">Portfolio.</h1>
+        <div class="space-x-6">
+            <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
+            <a href="YOUR_LINKEDIN_URL" class="bg-sky-600 px-4 py-2 rounded-lg hover:bg-sky-500 transition">LinkedIn</a>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center max-w-4xl mx-auto px-4">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I'm <span class="gradient-text">Arushi Marwaha</span></h2>
+        <p class="text-gray-400 text-xl mb-8">Building projects, completing assignments, and exploring tech.</p>
+        <div class="flex justify-center gap-4">
+            <a href="#projects" class="border border-gray-600 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">View My Work</a>
+        </div>
+    </header>
+
+    <section id="projects" class="max-w-6xl mx-auto px-4 py-20">
+        <h3 class="text-3xl font-bold mb-12 border-b border-gray-800 pb-4">Projects & Assignments</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-gray-700 hover:border-sky-500 transition">
+                <h4 class="text-xl font-bold mb-2">Project One Name</h4>
+                <p class="text-gray-400 mb-4">A brief description of what you built or the assignment you completed.</p>
+                <div class="flex gap-3">
+                    <span class="text-xs bg-slate-700 px-2 py-1 rounded text-sky-300">Python</span>
+                    <span class="text-xs bg-slate-700 px-2 py-1 rounded text-sky-300">GitHub</span>
+                </div>
+                <a href="https://g1la0x-arushimarwaha.shinyapps.io/Customer_Dashboard/" class="inline-block mt-4 text-sky-400 hover:underline">View Project →</a>
+            </div>
+
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-gray-700 hover:border-sky-500 transition">
+                <h4 class="text-xl font-bold mb-2">Academic Assignment</h4>
+                <p class="text-gray-400 mb-4">Customer Behaviour Dashboard.</p>
+                <a href="https://g1la0x-arushimarwaha.shinyapps.io/Customer_Dashboard/" class="inline-block mt-4 text-sky-400 hover:underline">View File →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="text-center py-10 border-t border-gray-800">
+        <p class="text-gray-500">Connect with me</p>
+        <div class="flex justify-center gap-6 mt-4 text-2xl">
+            <a href="https://www.linkedin.com/in/arushimarwaha/" class="hover:text-sky-400"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:arushimarwaha03@gmail.com" class="hover:text-sky-400"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
 </body>
 </html>
