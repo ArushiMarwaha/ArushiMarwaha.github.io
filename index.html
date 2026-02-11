@@ -47,7 +47,7 @@
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <span class="font-mono text-sm tracking-tighter font-bold text-emerald-500">AM.ROOT</span>
             <div class="flex gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
-                <a href="#about" class="hover:text-emerald-400 transition">About</a>
+                <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
                 <a href="#projects" class="hover:text-emerald-400 transition">Work</a>
                 <a href="#archive" class="hover:text-emerald-400 transition">Archive</a>
                 <a href="https://www.linkedin.com/in/arushimarwaha/" target="_blank" class="text-emerald-500">LinkedIn</a>
@@ -55,14 +55,19 @@
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
-        <p class="font-mono text-emerald-500 mb-4 tracking-widest uppercase text-sm italic">Data Science student </p>
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 relative">
+        <div class="absolute inset-0 flex justify-center items-center opacity-5 pointer-events-none">
+            <span class="text-[20rem] font-bold">Σ</span>
+        </div>
+        
+        <p class="font-mono text-emerald-500 mb-4 tracking-widest uppercase text-sm italic">Data Science Student</p>
         <h1 class="text-6xl md:text-9xl font-black text-white mb-6 tracking-tighter">
             Hi, I'm <br><span class="emerald-gradient">Arushi Marwaha.</span>
         </h1>
-        <p class="max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed mb-10">
-            M.Sc. Data Science student at <b>CMI</b>. Solving complex problems using mathematical rigor, 
-            LLM evaluation, and multimodal AI architectures.
+        <p class="max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed mb-6">
+            M.Sc. Data Science student at <b>CMI</b>. Solving complex problems through 
+            <span class="text-emerald-500 font-mono">$$\hat{y} = \beta_0 + \beta_1 x_1$$</span> 
+            and elegant machine learning architectures.
         </p>
         <div class="flex gap-4">
             <a href="mailto:arushimarwaha03@gmail.com" class="bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-4 rounded-full font-bold transition">
@@ -83,12 +88,66 @@
         </div>
     </section>
 
-    <section id="archive" class="max-w-5xl mx-auto px-6 py-32 border-t border-slate-900">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-            <div>
-                <h3 class="text-sm font-mono text-emerald-500 mb-4 uppercase tracking-widest">// CMI Repository</h3>
-                <h4 class="text-4xl font-black text-white">Academic <span class="text-emerald-500">Archive.</span></h4>
+    <section id="skills" class="max-w-5xl mx-auto px-6 py-24">
+        <h3 class="text-sm font-mono text-emerald-500 mb-12 uppercase tracking-widest">// Technical Expertise</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-6 card rounded-xl">
+                <i class="fab fa-python text-2xl mb-3 text-emerald-500"></i>
+                <p class="text-xs font-bold uppercase tracking-widest">Python / R</p>
             </div>
+            <div class="p-6 card rounded-xl">
+                <i class="fas fa-square-root-alt text-2xl mb-3 text-emerald-500"></i>
+                <p class="text-xs font-bold uppercase tracking-widest">Applied Math</p>
+            </div>
+            <div class="p-6 card rounded-xl">
+                <i class="fas fa-brain text-2xl mb-3 text-emerald-500"></i>
+                <p class="text-xs font-bold uppercase tracking-widest">ML / NLP</p>
+            </div>
+            <div class="p-6 card rounded-xl">
+                <i class="fas fa-database text-2xl mb-3 text-emerald-500"></i>
+                <p class="text-xs font-bold uppercase tracking-widest">SQL / Power BI</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-5xl mx-auto px-6 py-24">
+        <h3 class="text-4xl font-black text-white mb-16">Selected <span class="text-emerald-500">Projects.</span></h3>
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <a href="https://g1la0x-arushimarwaha.shinyapps.io/Customer_Dashboard/" target="_blank" class="card p-10 rounded-3xl group">
+                <div class="flex justify-between items-start mb-8">
+                    <div class="bg-emerald-500/10 p-4 rounded-xl">
+                        <i class="fas fa-chart-pie text-emerald-500 text-xl"></i>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-slate-700 group-hover:text-emerald-500 transition"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-white mb-4">Customer Behavior Analysis</h4>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Interactive R/Shiny dashboard analyzing purchasing patterns and customer segmentation using K-means clustering.</p>
+                <div class="flex gap-4 font-mono text-[10px] text-emerald-500">
+                    <span>#R-SHINY</span> <span>#CLUSTERING</span>
+                </div>
+            </a>
+
+            <div class="card p-10 rounded-3xl group opacity-80">
+                <div class="flex justify-between items-start mb-8">
+                    <div class="bg-blue-500/10 p-4 rounded-xl text-blue-500">
+                        <i class="fas fa-microchip text-xl"></i>
+                    </div>
+                </div>
+                <h4 class="text-2xl font-bold text-white mb-4">Masters Dissertation</h4>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Adaptive fractal dimension analysis and CNN-based feature extraction pipeline at CMI.</p>
+                <div class="flex gap-4 font-mono text-[10px] text-blue-400">
+                    <span>#DEEP_LEARNING</span> <span>#PYTORCH</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="archive" class="max-w-5xl mx-auto px-6 py-32 border-t border-slate-900">
+        <div class="mb-16">
+            <h3 class="text-sm font-mono text-emerald-500 mb-4 uppercase tracking-widest">// CMI Repository</h3>
+            <h4 class="text-4xl font-black text-white">Academic <span class="text-emerald-500">Archive.</span></h4>
         </div>
 
         <div class="mb-20">
@@ -99,7 +158,7 @@
                 <table class="w-full text-left border-collapse">
                     <tbody class="text-sm">
                         <tr class="border-b border-slate-900 hover:bg-emerald-500/5 transition-colors group">
-                            <td class="py-6 font-bold text-white w-1/3">Assignment 01</td>
+                            <td class="py-6 font-bold text-white w-1/3 tracking-tight">Assignment 01</td>
                             <td class="py-6 text-gray-500 italic">Python for Data Science</td>
                             <td class="py-6 text-right">
                                 <div class="flex justify-end gap-6">
@@ -115,7 +174,7 @@
                             </td>
                         </tr>
                         <tr class="border-b border-slate-900 hover:bg-emerald-500/5 transition-colors group">
-                            <td class="py-6 font-bold text-white w-1/3">Assignment 02</td>
+                            <td class="py-6 font-bold text-white w-1/3 tracking-tight">Assignment 02</td>
                             <td class="py-6 text-gray-500 italic">Python for Data Science</td>
                             <td class="py-6 text-right">
                                 <div class="flex justify-end gap-6">
@@ -130,66 +189,6 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="border-b border-slate-900 hover:bg-emerald-500/5 transition-colors group">
-                            <td class="py-6 font-bold text-white w-1/3">Assignment 03</td>
-                            <td class="py-6 text-gray-500 italic">Python for Data Science</td>
-                            <td class="py-6 text-right">
-                                <div class="flex justify-end gap-6">
-                                    <a href="assets/cmi/semester%201/PDSP2025-Assignment3.pdf" target="_blank" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Question</span>
-                                        <i class="fas fa-file-pdf"></i>
-                                    </a>
-                                    <a href="assets/cmi/semester%201/PDSP_Assignment%203.ipynb" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Solution</span>
-                                        <i class="fas fa-code"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-slate-900 hover:bg-emerald-500/5 transition-colors group">
-                            <td class="py-6 font-bold text-white w-1/3">Assignment 04</td>
-                            <td class="py-6 text-gray-500 italic">Python for Data Science</td>
-                            <td class="py-6 text-right">
-                                <div class="flex justify-end gap-6">
-                                    <a href="assets/cmi/semester%201/PDSP2025-Assignment4.pdf" target="_blank" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Question</span>
-                                        <i class="fas fa-file-pdf"></i>
-                                    </a>
-                                    <a href="assets/cmi/semester%201/PDSP_Assignment%204.ipynb" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Solution</span>
-                                        <i class="fas fa-code"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-slate-900 hover:bg-emerald-500/5 transition-colors group">
-                            <td class="py-6 font-bold text-white w-1/3">Assignment 05</td>
-                            <td class="py-6 text-gray-500 italic">Python for Data Science</td>
-                            <td class="py-6 text-right">
-                                <div class="flex justify-end gap-6">
-                                    <a href="assets/cmi/semester%201/PDSP2025-Assignment5.pdf" target="_blank" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Question</span>
-                                        <i class="fas fa-file-pdf"></i>
-                                    </a>
-                                    <a href="assets/cmi/semester%201/PDSP_Assignment%205.ipynb" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Solution</span>
-                                        <i class="fas fa-code"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-slate-900 hover:bg-emerald-500/5 transition-colors group">
-                            <td class="py-6 font-bold text-white w-1/3">Assignment 06</td>
-                            <td class="py-6 text-gray-500 italic">Python for Data Science</td>
-                            <td class="py-6 text-right">
-                                <div class="flex justify-end gap-6">
-                                    <a href="assets/cmi/semester%201/PDSP_Assignment%206.ipynb" class="text-emerald-500 hover:text-white transition-colors flex items-center gap-2">
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter hidden md:inline">Solution</span>
-                                        <i class="fas fa-code"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -197,7 +196,7 @@
     </section>
 
     <footer class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-mono tracking-widest text-slate-600">
-        <p>DESIGNED BY ARUSHI MARWAHA © 2026</p>
+        <p>ARUSHI MARWAHA © 2026 // CMI DATA SCIENCE</p>
         <div class="flex gap-8">
             <a href="https://www.linkedin.com/in/arushimarwaha/" class="hover:text-emerald-500">LINKEDIN</a>
             <a href="mailto:arushimarwaha03@gmail.com" class="hover:text-emerald-500">EMAIL</a>
