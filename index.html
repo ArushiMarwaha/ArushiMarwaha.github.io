@@ -6,213 +6,232 @@
     <title>Arushi Marwaha | Data Scientist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
         
         :root {
-            --dark-cacao: #1b0a07;
-            --truffle: #2d1611;
-            --milk-chocolate: #4d2d1f;
-            --gold-leaf: #d4a373;
-            --cream-foam: #fdf0d5;
+            --bg: #1b0a07; /* Dark Chocolate */
+            --card: rgba(45, 22, 17, 0.6);
+            --text: #fdf0d5;
+            --accent: #d4a373; /* Gold */
+            --nav: rgba(27, 10, 7, 0.8);
+        }
+
+        .light-mode {
+            --bg: #fdf0d5; /* Vanilla Cream */
+            --card: rgba(212, 163, 115, 0.1);
+            --text: #1b0a07;
+            --accent: #8b5e34; /* Rich Cocoa */
+            --nav: rgba(253, 240, 213, 0.8);
         }
 
         body { 
-            background-color: var(--dark-cacao); 
-            color: var(--cream-foam); 
+            background-color: var(--bg); 
+            color: var(--text); 
             font-family: 'Outfit', sans-serif;
-            scroll-behavior: smooth;
+            transition: background-color 0.5s ease, color 0.5s ease;
             overflow-x: hidden;
         }
 
-        /* Animated Mandala Background */
-        .mandala-aura {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background-image: url("https://www.transparenttextures.com/patterns/sacred-geometry.png");
-            opacity: 0.08;
-            filter: invert(1);
-            animation: pulse-rotate 40s linear infinite;
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             z-index: -1;
+            opacity: 0.4;
         }
 
-        @keyframes pulse-rotate {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
+        .glass-nav {
+            background: var(--nav);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
         }
 
-        .chocolate-card {
-            background: rgba(45, 22, 17, 0.4);
+        .chocolate-btn {
+            background: var(--accent);
+            color: var(--bg);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .chocolate-btn:hover {
+            transform: scale(1.05) rotate(-1deg);
+        }
+
+        .card-interactive {
+            background: var(--card);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 163, 115, 0.1);
-            border-radius: 2rem;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
-        .chocolate-card:hover {
-            border-color: var(--gold-leaf);
-            background: rgba(45, 22, 17, 0.6);
-            transform: translateY(-5px);
+        .card-interactive:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .gold-text {
-            background: linear-gradient(135deg, #d4a373 0%, #faedcd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .mode-toggle {
+            cursor: pointer;
+            width: 50px;
+            height: 25px;
+            background: var(--accent);
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 5px;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--dark-cacao); }
-        ::-webkit-scrollbar-thumb { background: var(--milk-chocolate); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gold-leaf); }
-
-        .blob-shadow {
-            filter: blur(80px);
-            background: var(--milk-chocolate);
-            width: 300px;
-            height: 300px;
-            position: absolute;
-            z-index: -2;
-            opacity: 0.3;
+        .toggle-circle {
+            width: 18px;
+            height: 18px;
+            background: var(--bg);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
         }
+
+        .light-mode .toggle-circle { transform: translateX(22px); }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="blob-shadow top-20 -left-20"></div>
-    <div class="blob-shadow bottom-20 -right-20" style="background: var(--gold-leaf);"></div>
+    <canvas id="canvas-bg"></canvas>
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center backdrop-blur-md bg-black/10 rounded-full px-8 py-3 border border-white/5">
-            <span class="font-black tracking-tighter text-lg uppercase gold-text">Arushi.</span>
-            <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em] font-bold">
-                <a href="#about" class="hover:text-gold-leaf transition">Identity</a>
-                <a href="#education" class="hover:text-gold-leaf transition">Education</a>
-                <a href="#projects" class="hover:text-gold-leaf transition">Archive</a>
-                <a href="https://www.linkedin.com/in/arushimarwaha/" target="_blank" class="text-gold-leaf">LinkedIn</a>
+    <nav class="fixed top-0 w-full z-50 glass-nav px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="font-bold tracking-tighter text-xl">ARUSHI<span class="text-accent">.</span></span>
+            
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-bold">
+                    <a href="#about" class="hover:text-accent">Blend</a>
+                    <a href="#education" class="hover:text-accent">Degrees</a>
+                    <a href="#projects" class="hover:text-accent">Work</a>
+                </div>
+                <div class="mode-toggle" onclick="toggleTheme()">
+                    <div class="toggle-circle"></div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
-        <div class="mandala-aura"></div>
-        
-        <p class="font-mono text-gold-leaf mb-6 tracking-[0.4em] uppercase text-xs">Data Science • LLM Evaluation • Fractals</p>
-        <h1 class="text-7xl md:text-9xl font-black text-white mb-6 tracking-tighter">
-            Hi, I'm <br><span class="gold-text italic">Arushi Marwaha.</span>
-        </h1>
-        <p class="max-w-2xl text-lg md:text-xl text-cream-foam/60 leading-relaxed mb-10">
-            Fusing the rigor of <b>Theoretical Mathematics</b> with <b>Modern AI</b>. 
-            Currently brewing data insights at CMI with a foundation from IISER.
-        </p>
-        <div class="flex gap-4">
-            <a href="mailto:arushimarwaha03@gmail.com" class="bg-gold-leaf text-dark-cacao px-10 py-4 rounded-full font-black hover:bg-white transition-all duration-300">
-                Let's Talk Shop
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+        <div class="reveal">
+            <p class="font-mono text-accent mb-4 tracking-[0.4em] uppercase text-xs">CMI • IISER • ISI</p>
+            <h1 class="text-7xl md:text-9xl font-black mb-6 tracking-tighter">
+                Espresso <br><span class="text-accent italic">& Data.</span>
+            </h1>
+            <p class="max-w-2xl text-lg md:text-xl opacity-70 leading-relaxed mb-10">
+                Hi, I'm Arushi. I build <b>Machine Learning</b> models and analyze <b>Fractal Patterns</b> 
+                with the precision of a master chocolatier.
+            </p>
+            <a href="mailto:arushimarwaha03@gmail.com" class="chocolate-btn px-10 py-4 rounded-full font-bold inline-block">
+                Brew a Connection
             </a>
         </div>
     </header>
 
     <section id="education" class="max-w-5xl mx-auto px-6 py-24">
-        <h3 class="text-xs font-mono text-gold-leaf mb-12 uppercase tracking-[0.5em] text-center">// Academic Pedigree</h3>
-        <div class="space-y-12">
-            <div class="chocolate-card p-8 flex flex-col md:flex-row justify-between gap-4">
-                <div>
-                    <h4 class="text-2xl font-bold text-white">M.Sc. Data Science</h4>
-                    <p class="text-gold-leaf font-medium">Chennai Mathematical Institute</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-sm font-mono opacity-50">2024 — Present</span>
-                </div>
+        <h3 class="text-center font-bold text-3xl mb-16">Academic <span class="text-accent">Roast</span></h3>
+        <div class="space-y-6">
+            <div class="card-interactive p-8 rounded-3xl reveal-left">
+                <span class="text-accent font-mono text-xs">2024 - Present</span>
+                <h4 class="text-2xl font-bold mt-2">M.Sc. Data Science</h4>
+                <p class="opacity-60">Chennai Mathematical Institute (CMI)</p>
             </div>
-            <div class="chocolate-card p-8 border-l-4 border-gold-leaf flex flex-col md:flex-row justify-between gap-4">
-                <div>
-                    <h4 class="text-2xl font-bold text-white">M.Sc. Mathematical Sciences</h4>
-                    <p class="text-gold-leaf font-medium">IISER Thiruvananthapuram</p>
-                    <p class="text-xs text-cream-foam/40 mt-2 max-w-md">Completed Master's Dissertation on Adaptive Fractal Analysis under Prof. M.P. Rajan.</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-sm font-mono opacity-50">2022 — 2024</span>
-                </div>
-            </div>
-            <div class="chocolate-card p-8 flex flex-col md:flex-row justify-between gap-4">
-                <div>
-                    <h4 class="text-2xl font-bold text-white">B.Sc. Physics Honours</h4>
-                    <p class="text-gold-leaf font-medium">Panjab University, Chandigarh</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-sm font-mono opacity-50">2018 — 2021</span>
-                </div>
+            <div class="card-interactive p-8 rounded-3xl reveal-right border-l-4 border-accent">
+                <span class="text-accent font-mono text-xs">2022 - 2024</span>
+                <h4 class="text-2xl font-bold mt-2">M.Sc. Mathematical Sciences</h4>
+                <p class="opacity-60 italic mb-2">IISER Thiruvananthapuram</p>
+                <p class="text-sm border-t border-accent/10 pt-4">Masters Dissertation: Adaptive Fractal Analysis under Prof. M.P. Rajan.</p>
             </div>
         </div>
     </section>
 
     <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
-        <div class="grid md:grid-cols-2 gap-10">
-            <div class="chocolate-card p-12 relative overflow-hidden group">
-                <i class="fas fa-brain absolute -right-4 -bottom-4 text-white/5 text-9xl group-hover:text-gold-leaf/10 transition-all"></i>
-                <h4 class="text-sm font-mono text-gold-leaf mb-4 uppercase tracking-widest">Research Archive</h4>
-                <h3 class="text-3xl font-bold text-white mb-6">IISER Dissertation</h3>
-                <p class="text-cream-foam/50 text-sm leading-relaxed mb-8">
-                    Engineered an adaptive fractal dimension analysis framework and CNN feature extraction pipeline, improving accuracy across varied image scales.
-                </p>
-                <div class="flex gap-3">
-                    <span class="text-[10px] border border-gold-leaf/30 px-3 py-1 rounded-full">Python</span>
-                    <span class="text-[10px] border border-gold-leaf/30 px-3 py-1 rounded-full">Fractals</span>
-                </div>
-            </div>
-
-            <a href="https://g1la0x-arushimarwaha.shinyapps.io/Customer_Dashboard/" target="_blank" class="chocolate-card p-12 group">
-                <h4 class="text-sm font-mono text-gold-leaf mb-4 uppercase tracking-widest">Live Application</h4>
-                <h3 class="text-3xl font-bold text-white mb-6">Behavior Analysis</h3>
-                <p class="text-cream-foam/50 text-sm leading-relaxed mb-8">
-                    Interactive R/Shiny dashboard analyzing purchasing patterns and customer segmentation using K-means clustering.
-                </p>
-                <span class="gold-text font-bold">View Live Project <i class="fas fa-external-link-alt ml-2 text-xs"></i></span>
-            </a>
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <h3 class="text-4xl font-black">Assignment <span class="text-accent">Vault.</span></h3>
+            <p class="font-mono text-xs text-accent">CMI SEMESTER 01</p>
         </div>
-    </section>
-
-    <section id="archive" class="max-w-6xl mx-auto px-6 py-24">
-        <h3 class="text-4xl font-black text-white mb-12 text-center">Semester 01 <span class="gold-text">Archive.</span></h3>
-        <div class="chocolate-card overflow-hidden">
-            <table class="w-full text-left">
+        
+        <div class="card-interactive overflow-hidden rounded-[2rem]">
+            <table class="w-full text-left border-collapse">
                 <tbody class="text-sm">
                     <script>
-                        const assignments = [1, 2, 3, 4, 5, 6];
-                        assignments.forEach(num => {
+                        for(let i=1; i<=6; i++){
                             document.write(`
-                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                    <td class="p-8 font-bold text-white">Assignment 0${num}</td>
-                                    <td class="p-8 text-cream-foam/40 font-mono text-[10px] tracking-widest uppercase">Data Science Repository</td>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
+                                    <td class="p-8 font-bold">Assignment 0${i}</td>
+                                    <td class="p-8 opacity-40 hidden md:table-cell">Python for Data Science</td>
                                     <td class="p-8 text-right">
-                                        <div class="flex justify-end gap-6 text-gold-leaf">
-                                            <a href="assets/cmi/semester 1/PDSP2025-Assignment${num}.pdf" target="_blank" class="hover:text-white"><i class="fas fa-file-pdf"></i></a>
-                                            <a href="assets/cmi/semester 1/PDSP_Assignment ${num}.ipynb" class="hover:text-white"><i class="fas fa-code"></i></a>
+                                        <div class="flex justify-end gap-6 text-accent">
+                                            <a href="assets/cmi/semester 1/PDSP2025-Assignment${i}.pdf" target="_blank" class="hover:scale-125 transition"><i class="fas fa-file-pdf"></i></a>
+                                            <a href="assets/cmi/semester 1/PDSP_Assignment ${i}.ipynb" class="hover:scale-125 transition"><i class="fas fa-code"></i></a>
                                         </div>
                                     </td>
                                 </tr>
                             `);
-                        });
+                        }
                     </script>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <footer class="py-24 text-center">
-        <div class="mb-8">
-            <i class="fas fa-award text-gold-leaf text-3xl mb-4"></i>
-            <p class="text-xs font-mono uppercase tracking-[0.5em] text-cream-foam/30">AIR 28 — ISI MS QMS 2025</p>
-        </div>
-        <div class="flex justify-center gap-10 mb-8">
-            <a href="https://www.linkedin.com/in/arushimarwaha/" class="text-2xl hover:text-gold-leaf transition"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:arushimarwaha03@gmail.com" class="text-2xl hover:text-gold-leaf transition"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p class="text-[10px] font-mono tracking-widest text-cream-foam/20">© 2026 DESIGNED BY ARUSHI MARWAHA</p>
+    <footer class="py-20 text-center opacity-50 text-[10px] tracking-[0.5em] uppercase">
+        <p>AIR 28 ISI MS QMS • Arushi Marwaha • 2026</p>
     </footer>
 
+    <script>
+        // Interactive Canvas Background
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); });
+
+        class Particle {
+            constructor(x, y) { this.x = x; this.y = y; this.size = Math.random() * 2 + 1; this.baseX = this.x; this.baseY = this.y; this.density = (Math.random() * 30) + 1; }
+            draw() { ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent'); ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.closePath(); ctx.fill(); }
+            update() {
+                let dx = mouse.x - this.x; let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius) {
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    this.x -= dx * force; this.y -= dy * force;
+                } else {
+                    if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+                    if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+                }
+            }
+        }
+
+        function init() {
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.draw(); p.update(); });
+            requestAnimationFrame(animate);
+        }
+
+        init(); animate();
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        // Scroll Animations
+        ScrollReveal().reveal('.reveal', { delay: 200, distance: '50px', origin: 'bottom' });
+        ScrollReveal().reveal('.reveal-left', { delay: 300, distance: '50px', origin: 'left' });
+        ScrollReveal().reveal('.reveal-right', { delay: 300, distance: '50px', origin: 'right' });
+    </script>
 </body>
 </html>
