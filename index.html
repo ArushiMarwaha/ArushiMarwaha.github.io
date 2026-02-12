@@ -3,182 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arushi Marwaha | Data Scientist </title>
+    <title>Arushi Marwaha | Data Scientist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&family=JetBrains+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono&display=swap');
         
         :root {
-            --espresso: #1a0f0a;
-            --latte: #f5ebe0;
-            --cream: #e3d5ca;
-            --mocha: #4a3728;
-            --accent: #d4a373;
+            --dark-cacao: #1b0a07;
+            --truffle: #2d1611;
+            --milk-chocolate: #4d2d1f;
+            --gold-leaf: #d4a373;
+            --cream-foam: #fdf0d5;
         }
 
         body { 
-            background-color: var(--espresso); 
-            color: var(--latte); 
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-cacao); 
+            color: var(--cream-foam); 
+            font-family: 'Outfit', sans-serif;
             scroll-behavior: smooth;
-            /* Recursive Mandala/Fractal Pattern Background */
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4a373' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 64c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM16 16c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm16 16c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' /%3E%3C/svg%3E");
+            overflow-x: hidden;
         }
 
-        .coffee-glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
+        /* Animated Mandala Background */
+        .mandala-aura {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background-image: url("https://www.transparenttextures.com/patterns/sacred-geometry.png");
+            opacity: 0.08;
+            filter: invert(1);
+            animation: pulse-rotate 40s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-rotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .chocolate-card {
+            background: rgba(45, 22, 17, 0.4);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 163, 115, 0.1);
+            border-radius: 2rem;
+            transition: all 0.4s ease;
         }
 
-        .coffee-gradient {
-            background: linear-gradient(135deg, #d4a373 0%, #a68a64 100%);
+        .chocolate-card:hover {
+            border-color: var(--gold-leaf);
+            background: rgba(45, 22, 17, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #d4a373 0%, #faedcd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .btn-brew {
-            background-color: var(--accent);
-            color: var(--espresso);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-brew:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(212, 163, 115, 0.4);
-        }
-
-        .mandala-hover:hover {
-            background-image: radial-gradient(circle, rgba(212, 163, 115, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--espresso); }
-        ::-webkit-scrollbar-thumb { background: var(--mocha); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        ::-webkit-scrollbar-track { background: var(--dark-cacao); }
+        ::-webkit-scrollbar-thumb { background: var(--milk-chocolate); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-leaf); }
+
+        .blob-shadow {
+            filter: blur(80px);
+            background: var(--milk-chocolate);
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            z-index: -2;
+            opacity: 0.3;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed top-0 w-full z-50 coffee-glass border-b border-mocha/20">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="font-bold tracking-tighter text-xl flex items-center gap-2">
-                <i class="fas fa-mug-hot text-accent"></i> ARUSHI.DS
-            </span>
-            <div class="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.2em] font-bold">
-                <a href="#about" class="hover:text-accent transition">The Blend</a>
-                <a href="#projects" class="hover:text-accent transition">Patterns</a>
-                <a href="#archive" class="hover:text-accent transition">Archive</a>
-                <a href="https://www.linkedin.com/in/arushimarwaha/" target="_blank" class="text-accent">LinkedIn</a>
+    <div class="blob-shadow top-20 -left-20"></div>
+    <div class="blob-shadow bottom-20 -right-20" style="background: var(--gold-leaf);"></div>
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center backdrop-blur-md bg-black/10 rounded-full px-8 py-3 border border-white/5">
+            <span class="font-black tracking-tighter text-lg uppercase gold-text">Arushi.</span>
+            <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em] font-bold">
+                <a href="#about" class="hover:text-gold-leaf transition">Identity</a>
+                <a href="#education" class="hover:text-gold-leaf transition">Education</a>
+                <a href="#projects" class="hover:text-gold-leaf transition">Archive</a>
+                <a href="https://www.linkedin.com/in/arushimarwaha/" target="_blank" class="text-gold-leaf">LinkedIn</a>
             </div>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
-        <div class="absolute opacity-10 pointer-events-none">
-            <i class="fas fa-dharmachakra text-[40rem] animate-[spin_60s_linear_infinite]"></i>
-        </div>
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+        <div class="mandala-aura"></div>
         
-        <p class="font-mono text-accent mb-4 tracking-[0.3em] uppercase text-xs">CMI Graduate Student • Cold Coffee Lover</p>
-        <h1 class="text-7xl md:text-9xl font-extrabold text-white mb-6 tracking-tighter leading-[0.9]">
-            Hi, I'm <br><span class="coffee-gradient">Arushi Marwaha.</span>
+        <p class="font-mono text-gold-leaf mb-6 tracking-[0.4em] uppercase text-xs">Data Science • LLM Evaluation • Fractals</p>
+        <h1 class="text-7xl md:text-9xl font-black text-white mb-6 tracking-tighter">
+            Hi, I'm <br><span class="gold-text italic">Arushi Marwaha.</span>
         </h1>
-        <p class="max-w-2xl text-lg md:text-xl text-cream/70 leading-relaxed mb-10">
-            Synthesizing <b>Machine Learning</b> architectures and <b>Fractal Geometry</b> 
-            with the same precision as a perfect cold brew. Specialized in LLM Evaluation and Multimodal AI.
+        <p class="max-w-2xl text-lg md:text-xl text-cream-foam/60 leading-relaxed mb-10">
+            Fusing the rigor of <b>Theoretical Mathematics</b> with <b>Modern AI</b>. 
+            Currently brewing data insights at CMI with a foundation from IISER.
         </p>
-        <div class="flex gap-6">
-            <a href="mailto:arushimarwaha03@gmail.com" class="btn-brew px-10 py-4 rounded-full font-bold shadow-lg">
-                Start a Conversation
+        <div class="flex gap-4">
+            <a href="mailto:arushimarwaha03@gmail.com" class="bg-gold-leaf text-dark-cacao px-10 py-4 rounded-full font-black hover:bg-white transition-all duration-300">
+                Let's Talk Shop
             </a>
         </div>
     </header>
 
-    <section id="about" class="max-w-6xl mx-auto px-6 py-24">
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="md:col-span-2 coffee-glass p-10 rounded-[2.5rem] mandala-hover">
-                <h3 class="text-3xl font-bold mb-6 italic text-white">The Perfect Mix</h3>
-                <p class="text-cream/80 text-lg leading-relaxed mb-6">
-                    I believe data, like a mandala, starts from a single point of truth and expands into recursive complexity. Whether I'm evaluating LLMs at Turing or researching fractals at CMI, I look for the underlying patterns in the noise.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    <span class="bg-mocha/40 px-4 py-2 rounded-full border border-accent/20 text-xs font-mono">Neural Networks</span>
-                    <span class="bg-mocha/40 px-4 py-2 rounded-full border border-accent/20 text-xs font-mono">LLM RAG Validation</span>
-                    <span class="bg-mocha/40 px-4 py-2 rounded-full border border-accent/20 text-xs font-mono">Fractal Analysis</span>
-                    <span class="bg-mocha/40 px-4 py-2 rounded-full border border-accent/20 text-xs font-mono">Multimodal AI</span>
+    <section id="education" class="max-w-5xl mx-auto px-6 py-24">
+        <h3 class="text-xs font-mono text-gold-leaf mb-12 uppercase tracking-[0.5em] text-center">// Academic Pedigree</h3>
+        <div class="space-y-12">
+            <div class="chocolate-card p-8 flex flex-col md:flex-row justify-between gap-4">
+                <div>
+                    <h4 class="text-2xl font-bold text-white">M.Sc. Data Science</h4>
+                    <p class="text-gold-leaf font-medium">Chennai Mathematical Institute</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-sm font-mono opacity-50">2024 — Present</span>
                 </div>
             </div>
-            <div class="bg-accent/5 p-10 rounded-[2.5rem] border border-accent/10 flex flex-col justify-center items-center text-center">
-                <i class="fas fa-bolt text-accent text-5xl mb-4"></i>
-                <h4 class="font-bold text-xl mb-2 text-white">Fuelled by</h4>
-                <p class="text-accent font-mono uppercase text-xs tracking-widest">Cold Brew & Calculus</p>
+            <div class="chocolate-card p-8 border-l-4 border-gold-leaf flex flex-col md:flex-row justify-between gap-4">
+                <div>
+                    <h4 class="text-2xl font-bold text-white">M.Sc. Mathematical Sciences</h4>
+                    <p class="text-gold-leaf font-medium">IISER Thiruvananthapuram</p>
+                    <p class="text-xs text-cream-foam/40 mt-2 max-w-md">Completed Master's Dissertation on Adaptive Fractal Analysis under Prof. M.P. Rajan.</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-sm font-mono opacity-50">2022 — 2024</span>
+                </div>
+            </div>
+            <div class="chocolate-card p-8 flex flex-col md:flex-row justify-between gap-4">
+                <div>
+                    <h4 class="text-2xl font-bold text-white">B.Sc. Physics Honours</h4>
+                    <p class="text-gold-leaf font-medium">Panjab University, Chandigarh</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-sm font-mono opacity-50">2018 — 2021</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
-        <h3 class="text-4xl font-extrabold text-white mb-16 text-center">Recursive <span class="text-accent italic">Work.</span></h3>
         <div class="grid md:grid-cols-2 gap-10">
-            
-            <a href="https://g1la0x-arushimarwaha.shinyapps.io/Customer_Dashboard/" target="_blank" class="coffee-glass p-12 rounded-[3rem] group border-accent/5">
-                <div class="flex justify-between items-start mb-8">
-                    <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-chart-pie text-accent text-2xl"></i>
-                    </div>
-                    <i class="fas fa-arrow-right -rotate-45 text-mocha group-hover:text-accent transition"></i>
+            <div class="chocolate-card p-12 relative overflow-hidden group">
+                <i class="fas fa-brain absolute -right-4 -bottom-4 text-white/5 text-9xl group-hover:text-gold-leaf/10 transition-all"></i>
+                <h4 class="text-sm font-mono text-gold-leaf mb-4 uppercase tracking-widest">Research Archive</h4>
+                <h3 class="text-3xl font-bold text-white mb-6">IISER Dissertation</h3>
+                <p class="text-cream-foam/50 text-sm leading-relaxed mb-8">
+                    Engineered an adaptive fractal dimension analysis framework and CNN feature extraction pipeline, improving accuracy across varied image scales.
+                </p>
+                <div class="flex gap-3">
+                    <span class="text-[10px] border border-gold-leaf/30 px-3 py-1 rounded-full">Python</span>
+                    <span class="text-[10px] border border-gold-leaf/30 px-3 py-1 rounded-full">Fractals</span>
                 </div>
-                <h4 class="text-2xl font-bold text-white mb-4">Customer Behavior Dashboard</h4>
-                <p class="text-cream/60 text-sm leading-relaxed mb-6">Interactive R/Shiny dashboard using clustering to map patterns in consumer entropy.</p>
-                <span class="text-[10px] font-mono font-bold tracking-widest text-accent uppercase">Patterns // R-Shiny</span>
-            </a>
-
-            <div class="coffee-glass p-12 rounded-[3rem] group border-accent/5 border-dashed">
-                <div class="flex justify-between items-start mb-8">
-                    <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-brain text-accent text-2xl"></i>
-                    </div>
-                </div>
-                <h4 class="text-2xl font-bold text-white mb-4">Masters Dissertation</h4>
-                <p class="text-cream/60 text-sm leading-relaxed mb-6">Deep learning framework for fractal dimension analysis and CNN feature extraction.</p>
-                <span class="text-[10px] font-mono font-bold tracking-widest text-accent uppercase">Research // CMI</span>
             </div>
 
+            <a href="https://g1la0x-arushimarwaha.shinyapps.io/Customer_Dashboard/" target="_blank" class="chocolate-card p-12 group">
+                <h4 class="text-sm font-mono text-gold-leaf mb-4 uppercase tracking-widest">Live Application</h4>
+                <h3 class="text-3xl font-bold text-white mb-6">Behavior Analysis</h3>
+                <p class="text-cream-foam/50 text-sm leading-relaxed mb-8">
+                    Interactive R/Shiny dashboard analyzing purchasing patterns and customer segmentation using K-means clustering.
+                </p>
+                <span class="gold-text font-bold">View Live Project <i class="fas fa-external-link-alt ml-2 text-xs"></i></span>
+            </a>
         </div>
     </section>
 
-    <section id="archive" class="max-w-6xl mx-auto px-6 py-32 border-t border-mocha/20">
-        <div class="mb-16">
-            <h3 class="text-4xl font-extrabold text-white tracking-tighter">Academic <span class="text-accent italic">Archive.</span></h3>
-            <p class="text-mocha font-mono text-xs mt-2 uppercase tracking-[0.4em]">Filtered by Semester 01</p>
-        </div>
-
-        <div class="overflow-x-auto rounded-[2rem] border border-mocha/10">
-            <table class="w-full text-left border-collapse bg-mocha/5">
-                <thead>
-                    <tr class="text-[10px] uppercase tracking-widest text-accent border-b border-mocha/20">
-                        <th class="p-8">Assignment</th>
-                        <th class="p-8">Field</th>
-                        <th class="p-8 text-right">Artifacts</th>
-                    </tr>
-                </thead>
+    <section id="archive" class="max-w-6xl mx-auto px-6 py-24">
+        <h3 class="text-4xl font-black text-white mb-12 text-center">Semester 01 <span class="gold-text">Archive.</span></h3>
+        <div class="chocolate-card overflow-hidden">
+            <table class="w-full text-left">
                 <tbody class="text-sm">
                     <script>
-                        const nums = [1, 2, 3, 4, 5, 6];
-                        nums.forEach(n => {
+                        const assignments = [1, 2, 3, 4, 5, 6];
+                        assignments.forEach(num => {
                             document.write(`
-                                <tr class="border-b border-mocha/10 hover:bg-white/5 transition-colors">
-                                    <td class="p-8 font-bold text-white tracking-tight">Assignment 0${n}</td>
-                                    <td class="p-8 text-cream/40 font-mono text-xs">Python for Data Science</td>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-8 font-bold text-white">Assignment 0${num}</td>
+                                    <td class="p-8 text-cream-foam/40 font-mono text-[10px] tracking-widest uppercase">Data Science Repository</td>
                                     <td class="p-8 text-right">
-                                        <div class="flex justify-end gap-8">
-                                            <a href="assets/cmi/semester 1/PDSP2025-Assignment${n}.pdf" target="_blank" class="text-accent hover:text-white transition">
-                                                <i class="fas fa-file-pdf"></i>
-                                            </a>
-                                            <a href="assets/cmi/semester 1/PDSP_Assignment ${n}.ipynb" class="text-accent hover:text-white transition">
-                                                <i class="fas fa-code"></i>
-                                            </a>
+                                        <div class="flex justify-end gap-6 text-gold-leaf">
+                                            <a href="assets/cmi/semester 1/PDSP2025-Assignment${num}.pdf" target="_blank" class="hover:text-white"><i class="fas fa-file-pdf"></i></a>
+                                            <a href="assets/cmi/semester 1/PDSP_Assignment ${num}.ipynb" class="hover:text-white"><i class="fas fa-code"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -190,17 +202,16 @@
         </div>
     </section>
 
-    <footer class="max-w-6xl mx-auto px-6 py-20 border-t border-mocha/20 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-espresso">
-                <i class="fas fa-check"></i>
-            </div>
-            <p class="text-[10px] font-mono tracking-widest text-mocha">CMI // 2026 // ARUSHI MARWAHA</p>
+    <footer class="py-24 text-center">
+        <div class="mb-8">
+            <i class="fas fa-award text-gold-leaf text-3xl mb-4"></i>
+            <p class="text-xs font-mono uppercase tracking-[0.5em] text-cream-foam/30">AIR 28 — ISI MS QMS 2025</p>
         </div>
-        <div class="flex gap-10 text-[10px] font-bold uppercase tracking-widest text-mocha">
-            <a href="https://www.linkedin.com/in/arushimarwaha/" class="hover:text-accent transition">LinkedIn</a>
-            <a href="mailto:arushimarwaha03@gmail.com" class="hover:text-accent transition">Email</a>
+        <div class="flex justify-center gap-10 mb-8">
+            <a href="https://www.linkedin.com/in/arushimarwaha/" class="text-2xl hover:text-gold-leaf transition"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:arushimarwaha03@gmail.com" class="text-2xl hover:text-gold-leaf transition"><i class="fas fa-envelope"></i></a>
         </div>
+        <p class="text-[10px] font-mono tracking-widest text-cream-foam/20">© 2026 DESIGNED BY ARUSHI MARWAHA</p>
     </footer>
 
 </body>
