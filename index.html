@@ -216,32 +216,145 @@
         </div>
     </section>
 
-    <section id="archive" class="max-w-5xl mx-auto px-6 py-24">
-        <h3 class="text-3xl font-black mb-12 reveal">Semester 01 <span class="gold-text">Archive.</span></h3>
-        <div class="chocolate-card overflow-hidden reveal">
-            <table class="w-full text-center">
-                <tbody class="text-sm">
-                    <script>
-                        for(let i=1; i<=6; i++){
-                            document.write(`
-                                <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
-                                    <td class="p-6 font-bold">Assignment 0${i}</td>
-                                    <td class="p-6 opacity-40 hidden md:table-cell font-mono text-[10px] uppercase tracking-widest">Data Science Repository</td>
-                                    <td class="p-6">
-                                        <div class="flex justify-center gap-6 text-accent">
-                                            <a href="assets/cmi/semester 1/PDSP2025-Assignment${i}.pdf" target="_blank" class="hover:scale-125 transition"><i class="fas fa-file-pdf"></i></a>
-                                            <a href="assets/cmi/semester 1/PDSP_Assignment ${i}.ipynb" class="hover:scale-125 transition"><i class="fas fa-code"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            `);
-                        }
-                    </script>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    <section id="archive" class="max-w-6xl mx-auto px-6 py-24">
+    
+    <h3 class="text-3xl font-black mb-4 reveal">
+        Academic <span class="gold-text">Archive.</span>
+    </h3>
 
+    <p class="opacity-50 mb-14 max-w-2xl mx-auto reveal">
+        Structured repository of coursework, assignments, notebooks, reports,
+        and academic material organized semester-wise.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Semester 1 -->
+        <div class="chocolate-card p-8 reveal">
+
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h4 class="text-2xl font-bold">Semester 01</h4>
+                    <p class="text-sm opacity-50 mt-1">
+                        Core Foundations in Data Science
+                    </p>
+                </div>
+
+                <i class="fas fa-folder-open text-3xl text-accent"></i>
+            </div>
+
+            <div class="space-y-4 text-left">
+
+                <a href="assets/cmi/semester%201/"
+                   target="_blank"
+                   class="flex items-center justify-between p-4 rounded-2xl bg-black/10 hover:bg-black/20 transition">
+
+                    <div>
+                        <p class="font-semibold">Course Repository</p>
+                        <p class="text-xs opacity-40 mt-1">
+                            Assignments • PDFs • Jupyter Notebooks
+                        </p>
+                    </div>
+
+                    <i class="fas fa-arrow-right text-accent"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Semester 2 -->
+        <div class="chocolate-card p-8 reveal">
+
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h4 class="text-2xl font-bold">Semester 02</h4>
+                    <p class="text-sm opacity-50 mt-1">
+                        Advanced Analytics & Computing
+                    </p>
+                </div>
+
+                <i class="fas fa-folder-open text-3xl text-accent"></i>
+            </div>
+
+            <div class="space-y-4 text-left">
+
+                <!-- ADT -->
+                <a href="assets/cmi/Semester%202/Algorithmic%20Design%20Techniques/"
+                   target="_blank"
+                   class="flex items-center justify-between p-4 rounded-2xl bg-black/10 hover:bg-black/20 transition">
+
+                    <div>
+                        <p class="font-semibold">
+                            Algorithmic Design Techniques
+                        </p>
+
+                        <p class="text-xs opacity-40 mt-1">
+                            Algorithms • Optimization • Problem Solving
+                        </p>
+                    </div>
+
+                    <i class="fas fa-folder text-accent"></i>
+                </a>
+
+                <!-- DMBDA -->
+                <a href="assets/cmi/Semester%202/Data%20Mining%20and%20Machine%20learning%20Assignments/"
+                   target="_blank"
+                   class="flex items-center justify-between p-4 rounded-2xl bg-black/10 hover:bg-black/20 transition">
+
+                    <div>
+                        <p class="font-semibold">
+                            Data Mining & Machine Learning
+                        </p>
+
+                        <p class="text-xs opacity-40 mt-1">
+                            ML Models • Clustering • Analytics
+                        </p>
+                    </div>
+
+                    <i class="fas fa-folder text-accent"></i>
+                </a>
+
+                <!-- DCBD -->
+                <a href="assets/cmi/Semester%202/Distributed%20Computing%20and%20Big%20Data/"
+                   target="_blank"
+                   class="flex items-center justify-between p-4 rounded-2xl bg-black/10 hover:bg-black/20 transition">
+
+                    <div>
+                        <p class="font-semibold">
+                            Distributed Computing & Big Data
+                        </p>
+
+                        <p class="text-xs opacity-40 mt-1">
+                            Systems • Parallelism • Data Engineering
+                        </p>
+                    </div>
+
+                    <i class="fas fa-folder text-accent"></i>
+                </a>
+
+                <!-- LAA -->
+                <a href="assets/cmi/Semester%202/Linear%20Algebra%20and%20Application%20Assignments/"
+                   target="_blank"
+                   class="flex items-center justify-between p-4 rounded-2xl bg-black/10 hover:bg-black/20 transition">
+
+                    <div>
+                        <p class="font-semibold">
+                            Linear Algebra & Applications
+                        </p>
+
+                        <p class="text-xs opacity-40 mt-1">
+                            Matrices • Eigenvalues • Numerical Methods
+                        </p>
+                    </div>
+
+                    <i class="fas fa-folder text-accent"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</section>
     <footer class="py-24 border-t border-white/5 reveal">
         <i class="fas fa-award text-accent text-3xl mb-4"></i>
         <p class="text-xs font-mono uppercase tracking-[0.4em] opacity-30 mb-6">AIR 28 — ISI MS QMS 2025</p>
